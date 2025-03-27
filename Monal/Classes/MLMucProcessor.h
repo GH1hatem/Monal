@@ -24,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(void) join:(NSString*) room;
 -(void) leave:(NSString*) room withBookmarksUpdate:(BOOL) updateBookmarks keepBuddylistEntry:(BOOL) keepBuddylistEntry;
+-(void) changeNickname:(NSString *) contactJid groupNickname:(NSString *) groupNickname;
 
 //muc management methods
 -(NSString* _Nullable) generateMucJid;

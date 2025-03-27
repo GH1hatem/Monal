@@ -366,9 +366,7 @@ struct ContactDetails: View {
                         isEditingGroupNickname = EditingGroupNickname
                     })
                     .onSubmit {
-                        let presence = XMPPPresence()
-                        presence.changeNickname(contact.contactJid as String, withNick: groupNickname)
-                        account.send(presence)
+                       self.account.mucProcessor.changeNickname(contact.contactJid as String, groupNickname: groupNickname)
                     }
                     .addClearButton(isEditing: isEditingGroupNickname, text: $groupNickname)
                 }

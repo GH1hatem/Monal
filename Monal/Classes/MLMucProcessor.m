@@ -1118,6 +1118,15 @@ $$
     [self deleteMuc:room withBookmarksUpdate:updateBookmarks keepBuddylistEntry:keepBuddylistEntry];
 }
 
+-(void) changeNickname:(NSString *) contactJid groupNickname:(NSString *) groupNickname
+{
+    DDLogInfo(@"Sending presence with nickname change for '%@'...", contactJid);
+    
+    XMPPPresence *presence = [XMPPPresence new];
+    [presence changeNickname:contactJid withNick:groupNickname];
+    [_account send:presence];
+}
+
 -(void) sendDiscoQueryFor:(NSString*) roomJid withJoin:(BOOL) join andBookmarksUpdate:(BOOL) updateBookmarks
 {
     if(roomJid == nil || _account == nil)
